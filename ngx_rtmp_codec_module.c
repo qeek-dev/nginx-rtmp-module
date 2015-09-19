@@ -864,7 +864,7 @@ ngx_rtmp_codec_meta_data(ngx_rtmp_session_t *s, ngx_rtmp_header_t *h,
 
     if (v.width != -1) ctx->width = (ngx_uint_t) v.width;
     if (v.height != -1) ctx->height = (ngx_uint_t) v.height;
-    if (v.duration != -1) ctx->duration = (ngx_uint_t) v.duration;
+    if (v.duration != -1) ctx->duration = (double) v.duration;
     if (v.frame_rate != -1) ctx->frame_rate = (double) v.frame_rate;
     if (v.video_data_rate != -1) ctx->video_data_rate = (ngx_uint_t) v.video_data_rate;
     if (v.video_codec_id_n != -1) ctx->video_codec_id = (ngx_uint_t) v.video_codec_id_n;
@@ -876,7 +876,7 @@ ngx_rtmp_codec_meta_data(ngx_rtmp_session_t *s, ngx_rtmp_header_t *h,
 
     ngx_log_debug8(NGX_LOG_DEBUG, s->connection->log, 0,
             "codec: data frame: "
-            "width=%ui height=%ui duration=%ui frame_rate=%ui "
+            "width=%ui height=%ui duration=%.3f frame_rate=%.3f "
             "video=%s (%ui) audio=%s (%ui)",
             ctx->width, ctx->height, ctx->duration, ctx->frame_rate,
             ngx_rtmp_get_video_codec_name(ctx->video_codec_id),
