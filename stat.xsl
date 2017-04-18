@@ -31,8 +31,8 @@
         <tr bgcolor="#999999">
             <th>RTMP</th>
             <th>#clients</th>
-            <th colspan="4">Video</th>
-            <th colspan="4">Audio</th>
+            <th colspan="5">Video</th>
+            <th colspan="5">Audio</th>
             <th>In bytes</th>
             <th>Out bytes</th>
             <th>In bits/s</th>
@@ -46,10 +46,12 @@
             <th bgcolor="#999999">bits/s</th>
             <th bgcolor="#999999">size</th>
             <th bgcolor="#999999">fps</th>
+            <th bgcolor="#999999">bitrate</th>
             <th bgcolor="#999999">codec</th>
             <th bgcolor="#999999">bits/s</th>
             <th bgcolor="#999999">freq</th>
             <th bgcolor="#999999">chan</th>
+            <th bgcolor="#999999">bitrate</th>
             <td>
                 <xsl:call-template name="showsize">
                     <xsl:with-param name="size" select="bytes_in"/>
@@ -162,6 +164,9 @@
             <xsl:value-of select="meta/video/frame_rate"/>
         </td>
         <td>
+            <xsl:value-of select="meta/video/bitrate"/>
+        </td>
+        <td>
             <xsl:value-of select="meta/audio/codec"/>&#160;<xsl:value-of select="meta/audio/profile"/>
         </td>
         <td>
@@ -176,6 +181,9 @@
         </td>
         <td>
             <xsl:value-of select="meta/audio/channels"/>
+        </td>
+        <td>
+            <xsl:value-of select="meta/audio/bitrate"/>
         </td>
         <td>
             <xsl:call-template name="showsize">
